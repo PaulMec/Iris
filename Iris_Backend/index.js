@@ -1,5 +1,6 @@
-const express = require('express'); 
+const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const todoRoutes = require('./routes/todoRoutes');
 const authRoutes = require('./routes/authRoutes');
 require('dotenv').config();
@@ -7,14 +8,17 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware para parsear el cuerpo de las solicitudes en formato JSON
+// Configurar CORS
+app.use(cors({
+  origin: 'http://localhost:4200', // Permitir solicitudes desde el frontend
+  credentials: true,
+}));
+
 app.use(express.json());
 
-// Rutas
 app.use('/todos', todoRoutes);
 app.use('/auth', authRoutes);
 
-// Ruta raíz para verificar si el servidor está corriendo
 app.get('/', (req, res) => {
   res.send('¡Hola, Node.js está funcionando!');
 });

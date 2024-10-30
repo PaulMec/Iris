@@ -94,7 +94,6 @@ router.delete('/:id', auth, async (req, res) => {
         return res.status(404).json({ message: 'No se encontró la tarea' });
       }
   
-      // Reemplazar el uso de `remove()` por `deleteOne()`
       await Todo.deleteOne({ _id: req.params.id });
       res.json({ message: 'Tarea eliminada' });
     } catch (err) {

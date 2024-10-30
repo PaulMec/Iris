@@ -1,0 +1,37 @@
+<div class="todo-container">
+  <header class="header">
+    <div class="header-background">
+      <img src="assets/logo.png" alt="Iris Logo" class="logo" />
+    </div>
+  </header>
+
+  <h1 class="todo-title">To do List</h1>
+
+  <div *ngIf="isLoading" class="loading-message">
+    Cargando tareas...
+  </div>
+
+  <div class="todo-controls">
+    <select class="filter-select" [(ngModel)]="filterStatus" (change)="applyFilter()">
+      <option value="all">All</option>
+      <option value="completed">Completed</option>
+      <option value="pending">Pending</option>
+    </select>
+
+    <input type="text" placeholder="Nueva tarea" [(ngModel)]="newTodoTitle" class="new-task-input" />
+    <button (click)="addTodo()" class="add-task-button">
+      <span>+</span>
+    </button>
+  </div>
+
+  <div class="todo-list" style="margin-top: 20px; padding-left: 10px;">
+    <div class="todo-item" *ngFor="let todo of filteredTodos">
+      <input type="checkbox" [checked]="todo.completed" (change)="toggleTodoStatus(todo)" class="todo-checkbox" />
+      <span>{{ todo.title }}</span>
+      <button class="delete-task-button" (click)="deleteTodo(todo._id)">
+        <span>×</span>
+      </button>
+    </div>
+  </div>
+
+</div>

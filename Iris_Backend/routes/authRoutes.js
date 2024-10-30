@@ -24,6 +24,16 @@ router.post('/register', async (req, res) => {
   }
 });
 
+// Obtener todos los usuarios
+router.get('/users', async (req, res) => {
+  try {
+    const users = await User.find({}, 'email'); // Solo obtenemos el email de los usuarios para no exponer la contraseña
+    res.json(users);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 // Iniciar sesión con un usuario existente
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;

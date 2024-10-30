@@ -1,0 +1,116 @@
+.todo-container {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f7f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+
+  .logo {
+    height: 60px;
+  }
+}
+
+.todo-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.todo-controls {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+
+  .filter-select {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 1rem;
+    margin-right: 10px;
+    outline: none;
+  }
+
+  .new-task-input {
+    flex: 2;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1rem;
+    margin-right: 10px;
+  }
+
+  .add-task-button {
+    background-color: #4caf50;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    outline: none;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #45a049;
+    }
+  }
+}
+
+.todo-list {
+  h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 15px;
+  }
+
+  .todo-item {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 10px;
+
+    input[type="checkbox"] {
+      margin-right: 15px;
+      transform: scale(1.3);
+    }
+
+    span {
+      flex: 1;
+      font-size: 1rem;
+    }
+
+    .delete-task-button {
+      background-color: transparent;
+      border: none;
+      color: #f44336;
+      font-size: 1.5rem;
+      cursor: pointer;
+      outline: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #d32f2f;
+      }
+    }
+  }
+}
